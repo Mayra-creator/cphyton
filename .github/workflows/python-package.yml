@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<conio.h>
+
+int main(){
+	char palabra[50];
+	char palabrainvertida[50]="";
+	int finpalabra = 0;
+	int contador = 0;
+	int contadorb = 0;
+	bool palindromo = true;
+	printf("Escribe tu palabra: ");
+	gets(palabra);
+	for(int i = 0; i <=50;i++){
+		if(palabra[i]=='\0'){
+			finpalabra = i;
+			break;
+		}
+	}
+	printf("Palabra: %s \n",palabra);
+	//invertimos la palabra
+	
+	for(int i = finpalabra; i >= 0;i--){
+		if(palabra[i]!='\0'){
+			palabrainvertida[contador] = palabra[i];
+			contador++;
+		}
+	}
+	printf("Palabra invertida: %s\n",palabrainvertida);
+	
+	contador = 0;
+	
+	while(palabrainvertida[contador] != '\0'){
+		if(palabrainvertida[contador]==' '|| palabrainvertida[contador]=='\t'){
+			contador++;
+		}
+		if(palabra[contadorb]==' '|| palabra[contadorb]=='\t'){
+			contadorb++;
+		}
+		
+		if(palabrainvertida[contador]==palabra[contadorb]){
+			palindromo = true;
+		}
+		else{
+			palindromo = false;
+		}
+		contador++;
+		contadorb++;
+	}
+	
+	if(palindromo){
+		printf("Es un palindromo");
+	}else{
+		printf("No es un palindromo");
+	}
+	
+	return 0;
